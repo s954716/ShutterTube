@@ -15,3 +15,11 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// HW10
+// 請根據你的 Final Project，完成以下需求：
+// 1. 拉出專案架構
+// 2. 完成所有路由的配置
+// 3. 完成一個頁面的切版
+
+// NOTE: 不需要串接 API
