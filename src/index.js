@@ -16,10 +16,11 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-// HW10
-// 請根據你的 Final Project，完成以下需求：
-// 1. 拉出專案架構
-// 2. 完成所有路由的配置
-// 3. 完成一個頁面的切版
 
-// NOTE: 不需要串接 API
+
+//HW:11
+// 請根據你的 Final Project，完成以下需求：
+// 1. 完成所有頁面的切版
+// 2. 處理各種事件（點擊、換頁等等）
+
+// NOTE: 不需要串接 API，資料先寫死即可
