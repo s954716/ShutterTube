@@ -211,3 +211,58 @@ return {
     handleloginedUserPassword
 };
 };
+
+
+export const useMessagerInfor = (isAddMessager) => {
+  const [filterMessagerList,setFilterMessagerList] =useState([]);
+
+  const handleMessagerInfors = () => {
+    axios
+      .get(`https://api.airtable.com/v0/appzUYfhFTQydamJK/projects/${window.location.href.split(`project/`)[1]}`,
+        {
+          headers: {
+              Authorization: `Bearer keyMHZ3pIwRcsJmoj`
+          }
+        }
+      )
+      .then((res) => {
+        console.log("AddMessager to get project:",res.data.fields.messgers);
+        axios
+        .get("https://api.airtable.com/v0/appzUYfhFTQydamJK/messgers?maxRecords=50&view=Grid%20view",
+          {
+            headers: {
+                Authorization: `Bearer keyMHZ3pIwRcsJmoj`
+            }
+          }
+        )
+        .then((resMessagerInfors) => {
+          const filterMessagers = resMessagerInfors.data.records.filter((record) => {
+            let hasMessagerInfor = false;
+            for (const messgerId of res.data.fields.messgers) {
+              if(messgerId === record.id) hasMessagerInfor = true;
+            }
+            return hasMessagerInfor === true;
+          });
+          setFilterMessagerList(filterMessagers);
+        })
+        .catch((error) => {console.log(error)})
+      })
+      .catch((err) => {console.log(err)});
+  };
+
+  useEffect(() => {
+    if(isAddMessager) {
+      handleMessagerInfors();
+    }
+  },[isAddMessager])
+
+
+  useEffect(() => {
+    handleMessagerInfors();
+  },[])
+
+
+  return {
+    filterMessagerList
+  }
+};
